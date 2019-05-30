@@ -1,0 +1,44 @@
+<ng-container *ngIf="chiTietPhim!=null">
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <img [src]="chiTietPhim.HinhAnh" alt="">
+          </div>
+          <div class="col-sm-6">
+            <table class="table">
+              <tbody>
+                  <tr>
+                      <th>Tên Phim</th>
+                      <td>{{chiTietPhim.TenPhim}}</td>
+                    </tr>
+                    <tr>
+                      <th>Mô Tả</th>
+                      <td>{{chiTietPhim.MoTa}}</td>
+                    </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Tên Rạp</th>
+                <th>Ngày Chiếu</th>
+                <th>Giờ Chiếu</th>
+                <th>Giá Vé</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor = "let item of chiTietPhim.LichChieu">
+                <td>{{item.MaRap}}</td>
+                <td>{{item.NgayChieuGioChieu | date: "dd-MM-yyyy"}}</td>
+                <td>{{item.NgayChieuGioChieu | date: "hh:mm"}}</td>
+                <td>{{item.GiaVe}}</td>
+                <button class="btn btn-warning"(click)="muaVe(item.MaLichChieu)">Mua Vé</button>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+</ng-container>

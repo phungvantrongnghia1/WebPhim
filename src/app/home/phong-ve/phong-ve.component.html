@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+        <ng-container *ngFor="let item of chiTietPhong.DanhSachGhe,let STT = index">
+          <app-ghe [ghe]="item"></app-ghe>
+          <br *ngIf="(STT+1)%6===0">
+        </ng-container>
+    </div>
+  </div>
+</div>

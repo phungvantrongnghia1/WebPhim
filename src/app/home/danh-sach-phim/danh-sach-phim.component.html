@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3" *ngFor="let item of danhSachPhim">
+      <app-phim [phim]="item"></app-phim>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
