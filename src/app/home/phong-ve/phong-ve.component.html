@@ -1,10 +1,24 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6">
-        <ng-container *ngFor="let item of chiTietPhong.DanhSachGhe,let STT = index">
-          <app-ghe [ghe]="item"></app-ghe>
-          <br *ngIf="(STT+1)%6===0">
-        </ng-container>
-    </div>
-  </div>
-</div>
+<ng-container *ngIf="chiTietPhong!=null">
+    <div class="container mt-3">
+        <div class="row">
+          <div class="col-sm-6">
+            <h1>Danh Sách Ghế</h1>
+              <ng-container *ngFor="let item of chiTietPhong.DanhSachGhe,let STT = index">
+                <app-ghe [ghe]="item" (eventData)="datGhe($event)"></app-ghe>
+                <br *ngIf="(STT+1)%6===0">
+              </ng-container>
+          </div>
+          <div class="col-sm-6">
+            <h1>Danh Sách Ghế Chọn</h1>
+            <div *ngFor="let item of danhSachGheDat">
+              <span class="mr-3">Số Ghế:{{item.TenGhe}}</span>
+              <span class="mr-3">Giá:{{item.GiaVe}}đ</span>
+            </div>
+            <hr>
+            <span>Tổng tiền:    {{tien}}đ</span>
+            <br>
+            <button class="btn btn-success float-right">Thanh Toán</button>
+          </div>
+        </div>
+      </div>
+</ng-container>

@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-ghe',
@@ -7,12 +8,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class GheComponent implements OnInit {
 @Input() ghe;
+@Output() eventData = new EventEmitter();
   public status =false;
+  objectGhe={};
   constructor() { }
 
   ngOnInit() {
   }
   datGhe(){
     this.status =!this.status;
+    this.objectGhe={
+      trangThai:this.status,
+      ghe:this.ghe
+    }
+    this.eventData.emit(this.objectGhe);
   }
 }
